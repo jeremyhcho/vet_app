@@ -1,6 +1,6 @@
+/* eslint react/prefer-stateless-function: 0 */
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
-
 
 function asyncComponent(getComponent) {
   return class AsyncComponent extends React.Component {
@@ -28,17 +28,20 @@ function asyncComponent(getComponent) {
   }
 }
 
-// Components
 const App = asyncComponent(() =>
-  System.import('./components/App').then(module => module.default)
+  import('./components/App').then(module => module.default)
 )
 
-const AppRouter = () => (
-  <BrowserRouter>
-    <div>
-      <Route exact path='/' component={App} />
-    </div>
-  </BrowserRouter>
-)
+class AppRouter extends React.Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div>
+          <Route exact path='/' component={App} />
+        </div>
+      </BrowserRouter>
+    )
+  }
+}
 
 export default AppRouter

@@ -10,12 +10,12 @@ const VENDOR_LIBS = [
 const config = {
   devtool: 'eval',
   entry: {
-    bundle: ['babel-polyfill', './src/index.js'],
+    bundle: ['babel-polyfill', 'react-hot-loader/patch', './src/index.js'],
     vendor: VENDOR_LIBS,
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js',
+    filename: '[name].js',
     publicPath: '/'
   },
   module: {
@@ -47,6 +47,13 @@ const config = {
         ]
       }
     ]
+  },
+  devServer: {
+    hot: true,
+    historyApiFallback: true,
+    inline: true,
+    contentBase: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({

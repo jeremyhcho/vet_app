@@ -6,6 +6,9 @@ import ReactDOM from 'react-dom'
 import { createStore, compose, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 
+// Hot Loader
+import { AppContainer } from 'react-hot-loader'
+
 // Redux Saga
 import createSagaMiddleware from 'redux-saga'
 import rootReducer from './reducers'
@@ -24,10 +27,27 @@ const store = createStore(rootReducer, compose(
 sagaMiddleware.run(rootSaga)
 
 
-const app = (
-  <Provider store={store}>
-    <AppRouter />
-  </Provider>
+const rootEl = document.getElementById('root')
+
+ReactDOM.render(
+  <AppContainer>
+    <Provider store={store}>
+      <AppRouter />
+    </Provider>
+  </AppContainer>,
+  rootEl
 )
 
-ReactDOM.render(app, document.getElementById('root'))
+if (module.hot) {
+  module.hot.accept('./router', () => {
+    const NextApp = require('./router').default
+
+    ReactDOM.render(
+      <AppContainer>
+        <Provider store={store}>
+          <NextApp />
+        </Provider>
+      </AppContainer>
+    )
+  })
+}
