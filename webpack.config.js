@@ -38,6 +38,13 @@ const config = {
           { loader: 'sass-loader' }
         ],
         test: /\.scss$/
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        use: [
+          'file-loader',
+          'image-webpack-loader'
+        ]
       }
     ]
   },
@@ -48,7 +55,14 @@ const config = {
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     })
-  ]
+  ],
+  resolve: {
+    modules: [
+      path.join(__dirname, 'assets'),
+      path.join(__dirname, 'src'),
+      'node_modules'
+    ]
+  }
 }
 
 module.exports = config

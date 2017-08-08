@@ -25,6 +25,12 @@ const config = {
   module: {
     rules: [
       {
+        enforce: 'pre',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      },
+      {
         test: /\.js$/,
         use: 'babel-loader',
         exclude: /node_modules/
@@ -38,6 +44,13 @@ const config = {
           ],
           fallback: 'style-loader'
         })
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        use: [
+          'file-loader',
+          'image-webpack-loader'
+        ]
       }
     ]
   },
@@ -54,7 +67,14 @@ const config = {
       }
     }),
     extractSass
-  ]
+  ],
+  resolve: {
+    modules: [
+      path.join(__dirname, 'assets'),
+      path.join(__dirname, 'src'),
+      'node_modules'
+    ]
+  }
 }
 
 module.exports = config
