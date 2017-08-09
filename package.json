@@ -6,7 +6,8 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --config ./webpack.prod.config.js --progress --colors",
     "clean": "rimraf dist",
-    "start": "webpack-dev-server --hot",
+    "start": "node ./server.js | npm run dev",
+    "dev": "webpack-dev-server --content-base=www --inline --hot",
     "watch": "npm run clean && webpack --watch"
   },
   "author": "",
@@ -28,7 +29,6 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^3.4.1",
-    "webpack-dev-middleware": "^1.12.0",
     "webpack-dev-server": "^2.6.1"
   },
   "dependencies": {
@@ -47,6 +47,7 @@
     "eslint-plugin-react": "^7.1.0",
     "express": "^4.15.4",
     "extract-text-webpack-plugin": "^3.0.0",
+    "http-proxy": "^1.16.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-hot-loader": "^3.0.0-beta.7",

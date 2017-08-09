@@ -10,7 +10,11 @@ const VENDOR_LIBS = [
 const config = {
   devtool: 'eval',
   entry: {
-    bundle: ['babel-polyfill', 'react-hot-loader/patch', './src/index.js'],
+    bundle: [
+      'babel-polyfill',
+      'react-hot-loader/patch',
+      './src/index.js'
+    ],
     vendor: VENDOR_LIBS,
   },
   output: {
@@ -27,7 +31,7 @@ const config = {
         loader: 'eslint-loader'
       },
       {
-        use: 'babel-loader',
+        use: ['react-hot-loader/webpack', 'babel-loader'],
         test: /\.js$/,
         exclude: /node_modules/
       },
@@ -53,7 +57,14 @@ const config = {
     historyApiFallback: true,
     inline: true,
     contentBase: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
+    publicPath: '/',
+    filename: 'bundle.js',
+    proxy: {
+      '*': 'http://localhost:3000'
+    },
+    stats: {
+      colors: true
+    }
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
@@ -61,7 +72,9 @@ const config = {
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html'
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   resolve: {
     modules: [
