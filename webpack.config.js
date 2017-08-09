@@ -8,7 +8,7 @@ const VENDOR_LIBS = [
 ]
 
 const config = {
-  devtool: 'eval',
+  devtool: 'eval-source-map',
   entry: {
     bundle: [
       'babel-polyfill',
