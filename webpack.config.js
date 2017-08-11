@@ -31,17 +31,34 @@ const config = {
         loader: 'eslint-loader'
       },
       {
-        use: ['react-hot-loader/webpack', 'babel-loader'],
         test: /\.js$/,
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        use: 'react-hot-loader/webpack'
       },
       {
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-          { loader: 'sass-loader' }
+        loader: 'babel-loader',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        query: {
+          plugins: [
+            'transform-react-jsx',
+            [
+              'react-css-modules',
+              {
+                webpackHotModuleReloading: true,
+                exclude: 'node_modules',
+                generateScopedName: '[name]__[local]___[hash:base64:5]'
+              }
+            ]
+          ]
+        }
+      },
+      {
+        loaders: [
+          'style-loader?sourceMap',
+          'css-loader?importLoader=1&modules&localIdentName=[name]__[local]___[hash:base64:5]'
         ],
-        test: /\.scss$/
+        test: /\.css$/
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
