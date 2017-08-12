@@ -13,6 +13,7 @@ class HourColumn extends React.Component {
 
     return Array.from(extendedMoment.range(startOfDay, endOfDay).by('hour'))
   }
+
   render () {
     const hours = this.hoursRange()
 

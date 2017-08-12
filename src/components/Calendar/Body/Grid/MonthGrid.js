@@ -11,14 +11,14 @@ class MonthGrid extends React.Component {
     const startOfMonth = moment(this.props.selectedDate).clone().startOf('month')
     const startDayOfWeek = startOfMonth.day()
 
-    return startOfMonth.subtract(startDayOfWeek, 'day').toString()
+    return startOfMonth.subtract(startDayOfWeek, 'day').format()
   }
 
   getEndOfMonth () {
     const endOfMonth = moment(this.props.selectedDate).clone().endOf('month')
     const endDayOfWeek = endOfMonth.day()
 
-    return endOfMonth.add(6 - endDayOfWeek, 'day')
+    return endOfMonth.add(6 - endDayOfWeek, 'day').format()
   }
 
   weekRanges () {
