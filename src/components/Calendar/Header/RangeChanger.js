@@ -34,7 +34,7 @@ class RangeChanger extends React.Component {
   }
 
   parseDayText () {
-    return this.props.selectedDate.format('dddd, MMM Do YYYY')
+    return this.props.selectedDate.format('dddd, MMM d')
   }
 
   stepCalendarBack = () => {

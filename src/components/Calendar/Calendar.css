@@ -1,12 +1,6 @@
-html {
-  font-size: 62.5%;
-}
-
 .wrapper {
   display: flex;
   flex-direction: column;
-  font-family: 'proxima-nova', sans-serif;
-  font-weight: 400;
 }
 
 /* Header */
@@ -14,7 +8,6 @@ html {
   display: flex;
   flex: 1;
   padding: 15px 0;
-  font-size: 1.6rem;
 }
 
 .third {
@@ -50,7 +43,7 @@ html {
 }
 
 .current-date {
-  flex: 10;
+  flex: 4;
   text-align: center;
 }
 
@@ -59,18 +52,17 @@ html {
 }
 
 .range-angle.left {
-  text-align: left;
+  text-align: right;
 }
 
 .range-angle.right {
-  text-align: right;
+  text-align: left;
 }
 
 /* Body */
 .body {
   flex: 1;
   border-top: 1px solid black;
-  font-size: 1.4rem;
 }
 
 .body ul {
