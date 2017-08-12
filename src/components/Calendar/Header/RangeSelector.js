@@ -1,7 +1,7 @@
 import React from 'react'
 
 // CSS
-import './Calendar.css'
+import '../Calendar.css'
 
 const ranges = [
   { label: 'Month', value: 'month' },
@@ -9,7 +9,7 @@ const ranges = [
   { label: 'Day', value: 'day' }
 ]
 
-class CalendarRangeSelector extends React.Component {
+class RangeSelector extends React.Component {
   renderRanges () {
     const { selectedPeriod, changePeriod } = this.props
 
@@ -37,9 +37,9 @@ class CalendarRangeSelector extends React.Component {
   }
 }
 
-CalendarRangeSelector.propTypes = {
+RangeSelector.propTypes = {
   selectedPeriod: React.PropTypes.string.isRequired,
   changePeriod: React.PropTypes.func.isRequired
 }
 
-export default CalendarRangeSelector
+export default RangeSelector

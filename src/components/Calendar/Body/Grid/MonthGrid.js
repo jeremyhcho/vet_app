@@ -1,0 +1,56 @@
+import React from 'react'
+import moment from 'moment'
+import { extendMoment } from 'moment-range'
+
+// Components
+import WeekRow from './WeekRow'
+
+class MonthGrid extends React.Component {
+  getStartOfMonth () {
+    const startOfMonth = moment(this.props.selectedDate).clone().startOf('month')
+    const startDayOfWeek = startOfMonth.day()
+
+    return startOfMonth.subtract(startDayOfWeek, 'day').toString()
+  }
+
+  getEndOfMonth () {
+    const endOfMonth = moment(this.props.selectedDate).clone().endOf('month')
+    const endDayOfWeek = endOfMonth.day()
+
+    return endOfMonth.add(6 - endDayOfWeek, 'day')
+  }
+
+  weekRanges () {
+    const extendedMoment = extendMoment(moment)
+    const range = extendedMoment
+      .range(this.getStartOfMonth(), this.getEndOfMonth())
+      .by('week')
+
+    return Array.from(range)
+  }
+
+  render () {
+    const rows = this.weekRanges()
+
+    return (
+      <div>
+        {
+          rows.map(week => (
+            <WeekRow
+              key={week.format('YYYY-MM-DD')}
+              week={week}
+              selectedPeriod={this.props.selectedPeriod}
+            />
+          ))
+        }
+      </div>
+    )
+  }
+}
+
+MonthGrid.propTypes = {
+  selectedDate: React.PropTypes.object.isRequired,
+  selectedPeriod: React.PropTypes.string.isRequired
+}
+
+export default MonthGrid

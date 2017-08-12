@@ -5,9 +5,9 @@ import moment from 'moment'
 import './Calendar.css'
 
 // Components
-import CalendarHeader from './CalendarHeader'
-import CalendarBody from './CalendarBody'
-import CalendarFooter from './CalendarFooter'
+import Header from './Header'
+import Body from './Body'
+import Footer from './Footer'
 
 class Calendar extends React.Component {
   state = {
@@ -19,21 +19,26 @@ class Calendar extends React.Component {
     return () => this.setState({ selectedPeriod })
   }
 
+  changeDate = (selectedDate) => {
+    this.setState({ selectedDate })
+  }
+
   render () {
     const { selectedPeriod, selectedDate } = this.state
 
     return (
       <div styleName='wrapper'>
-        <CalendarHeader
+        <Header
           selectedPeriod={selectedPeriod}
           selectedDate={selectedDate}
           changePeriod={this.changePeriod}
+          changeDate={this.changeDate}
         />
-        <CalendarBody
+        <Body
           selectedPeriod={selectedPeriod}
           selectedDate={selectedDate}
         />
-        <CalendarFooter />
+        <Footer />
       </div>
     )
   }

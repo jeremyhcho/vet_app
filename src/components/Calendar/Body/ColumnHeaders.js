@@ -2,9 +2,9 @@ import React from 'react'
 import moment from 'moment'
 
 // CSS
-import './Calendar.css'
+import '../Calendar.css'
 
-class CalendarColumnHeaders extends React.Component {
+class ColumnHeaders extends React.Component {
   parseColumnHeaders () {
     switch (this.props.selectedPeriod) {
       case 'month':
@@ -25,28 +25,39 @@ class CalendarColumnHeaders extends React.Component {
   }
 
   parseWeekColumns () {
-    const startOfWeek = this.props.selectedDate.startOf('week')
+    const startOfWeek = this.props.selectedDate.clone().startOf('week')
     const days = []
 
     for (let i = 0; i < 7; i++) {
-      days.push(moment(startOfWeek).add(i, 'days').format('ddd M/D'))
+      days.push(startOfWeek.clone().add(i, 'days').format('ddd M/D'))
     }
 
     return (
       days.map(day => (
-        <li key={day}>{day}</li>
+        <li styleName='week-column-header' key={day}>{day}</li>
       ))
     )
   }
 
   parseDayColumns () {
-    return `${this.props.selectedDate.format('dddd M/D')}`
+    return <li styleName='day-column-header'>{`${this.props.selectedDate.format('dddd M/D')}`}</li>
+  }
+
+  shouldRenderHourColumn () {
+    return ['week', 'day'].includes(this.props.selectedPeriod)
+  }
+
+  renderHourColumn () {
+    return (
+      <li styleName='hour-column-header' />
+    )
   }
 
   render () {
     return (
-      <ul styleName='column-headers'>
-        { this.parseColumnHeaders() }
+      <ul>
+        {this.shouldRenderHourColumn() && this.renderHourColumn()}
+        {this.parseColumnHeaders()}
       </ul>
     )
   }
@@ -54,9 +65,9 @@ class CalendarColumnHeaders extends React.Component {
 
 const { string, object } = React.PropTypes
 
-CalendarColumnHeaders.propTypes = {
+ColumnHeaders.propTypes = {
   selectedPeriod: string.isRequired,
   selectedDate: object.isRequired
 }
 
-export default CalendarColumnHeaders
+export default ColumnHeaders

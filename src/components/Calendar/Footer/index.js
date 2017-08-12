@@ -1,6 +1,6 @@
 import React from 'react'
 
-class CalendarFooter extends React.Component {
+class Footer extends React.Component {
   render () {
     return (
       <div />
@@ -8,4 +8,4 @@ class CalendarFooter extends React.Component {
   }
 }
 
-export default CalendarFooter
+export default Footer

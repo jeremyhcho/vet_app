@@ -1,25 +1,31 @@
 import React from 'react'
 
 // CSS
-import './Calendar.css'
+import '../Calendar.css'
 
 // Components
-import CalendarRangeSelector from './CalendarRangeSelector'
-import CalendarRangeChanger from './CalendarRangeChanger'
+import RangeSelector from './RangeSelector'
+import RangeChanger from './RangeChanger'
 
-class CalendarHeader extends React.Component {
+class Header extends React.Component {
   render () {
-    const { selectedPeriod, changePeriod, selectedDate } = this.props
+    const {
+      selectedPeriod,
+      changePeriod,
+      selectedDate,
+      changeDate
+    } = this.props
 
     return (
       <div styleName='header'>
-        <CalendarRangeSelector
+        <RangeSelector
           selectedPeriod={selectedPeriod}
           changePeriod={changePeriod}
         />
-        <CalendarRangeChanger
+        <RangeChanger
           selectedPeriod={selectedPeriod}
           selectedDate={selectedDate}
+          changeDate={changeDate}
         />
         <div styleName='third' />
       </div>
@@ -29,10 +35,11 @@ class CalendarHeader extends React.Component {
 
 const { string, func, object } = React.PropTypes
 
-CalendarHeader.propTypes = {
+Header.propTypes = {
   selectedPeriod: string.isRequired,
   selectedDate: object.isRequired,
-  changePeriod: func.isRequired
+  changePeriod: func.isRequired,
+  changeDate: func.isRequired
 }
 
-export default CalendarHeader
+export default Header

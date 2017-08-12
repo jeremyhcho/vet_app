@@ -1,17 +1,23 @@
 import React from 'react'
 
 // Components
-import CalendarColumnHeaders from './CalendarColumnHeaders'
+import ColumnHeaders from './ColumnHeaders'
+import Grid from './Grid'
 
 // CSS
-import './Calendar.css'
+import '../Calendar.css'
 
-class CalendarBody extends React.Component {
+class Body extends React.Component {
   render () {
     const { selectedPeriod, selectedDate } = this.props
+
     return (
       <div styleName='body'>
-        <CalendarColumnHeaders
+        <ColumnHeaders
+          selectedPeriod={selectedPeriod}
+          selectedDate={selectedDate}
+        />
+        <Grid
           selectedPeriod={selectedPeriod}
           selectedDate={selectedDate}
         />
@@ -22,9 +28,9 @@ class CalendarBody extends React.Component {
 
 const { string, object } = React.PropTypes
 
-CalendarBody.propTypes = {
+Body.propTypes = {
   selectedPeriod: string.isRequired,
   selectedDate: object.isRequired
 }
 
-export default CalendarBody
+export default Body
