@@ -47,7 +47,7 @@ class RangeChanger extends React.Component {
       case 'week':
         return changeDate(selectedDate.clone().subtract(1, 'week').startOf('week'))
       default:
-        return changeDate(selectedDate.clone().subtract(1, 'day')).startOf('day')
+        return changeDate(selectedDate.clone().subtract(1, 'day').startOf('day'))
     }
   }
 
@@ -60,7 +60,7 @@ class RangeChanger extends React.Component {
       case 'week':
         return changeDate(selectedDate.clone().add(1, 'week').startOf('week'))
       default:
-        return changeDate(selectedDate.clone().add(1, 'day')).startOf('day')
+        return changeDate(selectedDate.clone().add(1, 'day').startOf('day'))
     }
   }
 
