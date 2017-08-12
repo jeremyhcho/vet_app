@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // Components
 import MonthGrid from './MonthGrid'
@@ -9,6 +10,21 @@ import DayGrid from './DayGrid'
 import '../../Calendar.css'
 
 class Grid extends React.Component {
+  state = {
+    appointments: [
+      {
+        name: 'Jeremy Cho',
+        from: 'Sat Aug 12 2017 12:00 GMT-0700',
+        to: 'Sat Aug 12 2017 1:00 GMT-0700'
+      },
+      {
+        name: 'Esther Lim',
+        from: 'Sat Aug 12 2017 1:30 GMT-0700',
+        to: 'Sat Aug 12 2017 3:00 GMT-0700'
+      }
+    ]
+  }
+
   renderGrid () {
     const { selectedPeriod, selectedDate } = this.props
 
@@ -18,12 +34,23 @@ class Grid extends React.Component {
           <MonthGrid
             selectedDate={selectedDate}
             selectedPeriod={selectedPeriod}
+            appointments={this.state.appointments}
           />
         )
       case 'week':
-        return <WeekGrid selectedDate={selectedDate} />
+        return (
+          <WeekGrid
+            selectedDate={selectedDate}
+            appointments={this.state.appointments}
+          />
+        )
       default:
-        return <DayGrid selectedDate={selectedDate} />
+        return (
+          <DayGrid
+            selectedDate={selectedDate}
+            appointments={this.state.appointments}
+          />
+        )
     }
   }
 
@@ -36,7 +63,7 @@ class Grid extends React.Component {
   }
 }
 
-const { string, object } = React.PropTypes
+const { string, object } = PropTypes
 
 Grid.propTypes = {
   selectedPeriod: string.isRequired,

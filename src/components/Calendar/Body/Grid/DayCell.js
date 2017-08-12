@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // CSS
 import '../../Calendar.css'
@@ -21,7 +22,7 @@ class DayCell extends React.Component {
   }
 }
 
-const { object, string } = React.PropTypes
+const { object, string } = PropTypes
 
 DayCell.propTypes = {
   day: object.isRequired,

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // CSS
 import '../Calendar.css'
@@ -38,8 +39,8 @@ class RangeSelector extends React.Component {
 }
 
 RangeSelector.propTypes = {
-  selectedPeriod: React.PropTypes.string.isRequired,
-  changePeriod: React.PropTypes.func.isRequired
+  selectedPeriod: PropTypes.string.isRequired,
+  changePeriod: PropTypes.func.isRequired
 }
 
 export default RangeSelector

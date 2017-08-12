@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // CSS
 import '../../Calendar.css'
@@ -15,7 +16,7 @@ class HourCell extends React.Component {
 }
 
 HourCell.propTypes = {
-  hour: React.PropTypes.object.isRequired
+  hour: PropTypes.object.isRequired
 }
 
 export default HourCell

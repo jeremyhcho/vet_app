@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // Components
 import HourColumn from './HourColumn'
@@ -20,6 +21,7 @@ class DayGrid extends React.Component {
   }
 
   render () {
+    console.log(this.props.appointments)
     return (
       <div styleName='day-grid'>
         <HourColumn />
@@ -29,8 +31,11 @@ class DayGrid extends React.Component {
   }
 }
 
+const { object, array } = PropTypes
+
 DayGrid.propTypes = {
-  selectedDate: React.PropTypes.object.isRequired
+  selectedDate: object.isRequired,
+  appointments: array.isRequired
 }
 
 export default DayGrid

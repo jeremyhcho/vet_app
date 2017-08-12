@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import moment from 'moment'
 
 // CSS
@@ -63,7 +64,7 @@ class ColumnHeaders extends React.Component {
   }
 }
 
-const { string, object } = React.PropTypes
+const { string, object } = PropTypes
 
 ColumnHeaders.propTypes = {
   selectedPeriod: string.isRequired,

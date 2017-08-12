@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // CSS
 import '../Calendar.css'
@@ -33,7 +34,7 @@ class Header extends React.Component {
   }
 }
 
-const { string, func, object } = React.PropTypes
+const { string, func, object } = PropTypes
 
 Header.propTypes = {
   selectedPeriod: string.isRequired,

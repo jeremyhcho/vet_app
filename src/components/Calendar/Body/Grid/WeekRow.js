@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import moment from 'moment'
 import { extendMoment } from 'moment-range'
 
@@ -41,8 +42,8 @@ class WeekRow extends React.Component {
 }
 
 WeekRow.propTypes = {
-  week: React.PropTypes.object.isRequired,
-  selectedPeriod: React.PropTypes.string.isRequired
+  week: PropTypes.object.isRequired,
+  selectedPeriod: PropTypes.string.isRequired
 }
 
 export default WeekRow

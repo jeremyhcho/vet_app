@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // Components
 import ColumnHeaders from './ColumnHeaders'
@@ -26,7 +27,7 @@ class Body extends React.Component {
   }
 }
 
-const { string, object } = React.PropTypes
+const { string, object } = PropTypes
 
 Body.propTypes = {
   selectedPeriod: string.isRequired,

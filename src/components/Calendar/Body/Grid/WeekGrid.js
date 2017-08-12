@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import moment from 'moment'
 import { extendMoment } from 'moment-range'
 
@@ -32,6 +33,7 @@ class WeekGrid extends React.Component {
   }
 
   render () {
+    console.log(this.props.appointments)
     return (
       <div styleName='week-grid'>
         <HourColumn />
@@ -41,8 +43,11 @@ class WeekGrid extends React.Component {
   }
 }
 
+const { object, array } = PropTypes
+
 WeekGrid.propTypes = {
-  selectedDate: React.PropTypes.object.isRequired
+  selectedDate: object.isRequired,
+  appointments: array.isRequired
 }
 
 export default WeekGrid

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // CSS
 import '../Calendar.css'
@@ -74,7 +75,7 @@ class RangeChanger extends React.Component {
   }
 }
 
-const { string, object, func } = React.PropTypes
+const { string, object, func } = PropTypes
 
 RangeChanger.propTypes = {
   selectedPeriod: string.isRequired,

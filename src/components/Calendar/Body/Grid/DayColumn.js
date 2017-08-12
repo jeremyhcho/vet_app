@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import moment from 'moment'
 import { extendMoment } from 'moment-range'
 
@@ -34,7 +35,7 @@ class DayColumn extends React.Component {
 }
 
 DayColumn.propTypes = {
-  day: React.PropTypes.object.isRequired
+  day: PropTypes.object.isRequired
 }
 
 export default DayColumn
