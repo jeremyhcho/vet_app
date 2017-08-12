@@ -7,7 +7,7 @@ import { extendMoment } from 'moment-range'
 import HourCell from './HourCell'
 
 // CSS
-import '../../Calendar.css'
+import '../../Calendar.scss'
 
 class DayColumn extends React.Component {
   hourRanges () {

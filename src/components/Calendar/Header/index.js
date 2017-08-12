@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // CSS
-import '../Calendar.css'
+import '../Calendar.scss'
 
 // Components
 import RangeSelector from './RangeSelector'

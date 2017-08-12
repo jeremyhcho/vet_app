@@ -6,7 +6,7 @@ import ColumnHeaders from './ColumnHeaders'
 import Grid from './Grid'
 
 // CSS
-import '../Calendar.css'
+import '../Calendar.scss'
 
 class Body extends React.Component {
   render () {

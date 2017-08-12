@@ -8,7 +8,7 @@ import DayColumn from './DayColumn'
 import HourColumn from './HourColumn'
 
 // CSS
-import '../../Calendar.css'
+import '../../Calendar.scss'
 
 class WeekGrid extends React.Component {
   weekRange () {

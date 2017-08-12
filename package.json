@@ -28,6 +28,7 @@
     "image-webpack-loader": "^3.3.1",
     "moment": "^2.18.1",
     "node-sass": "^4.5.3",
+    "postcss-nesting": "^4.0.1",
     "postcss-scss": "^1.0.2",
     "rimraf": "^2.6.1",
     "sass-loader": "^6.0.6",

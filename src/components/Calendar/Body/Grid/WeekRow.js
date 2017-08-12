@@ -7,7 +7,7 @@ import { extendMoment } from 'moment-range'
 import DayCell from './DayCell'
 
 // CSS
-import '../../Calendar.css'
+import '../../Calendar.scss'
 
 class WeekRow extends React.Component {
   getDays () {
@@ -33,6 +33,7 @@ class WeekRow extends React.Component {
               key={day.format('YYYY-MM-DD')}
               day={day}
               selectedPeriod={this.props.selectedPeriod}
+              appointments={this.props.appointments}
             />
           ))
         }
@@ -41,9 +42,12 @@ class WeekRow extends React.Component {
   }
 }
 
+const { object, string, array } = PropTypes
+
 WeekRow.propTypes = {
-  week: PropTypes.object.isRequired,
-  selectedPeriod: PropTypes.string.isRequired
+  week: object.isRequired,
+  selectedPeriod: string.isRequired,
+  appointments: array.isRequired
 }
 
 export default WeekRow

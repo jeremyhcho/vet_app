@@ -2,7 +2,7 @@ import React from 'react'
 import moment from 'moment'
 
 // CSS
-import './Calendar.css'
+import './Calendar.scss'
 
 // Components
 import Header from './Header'

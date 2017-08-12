@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // CSS
-import '../Calendar.css'
+import '../Calendar.scss'
 
 class RangeChanger extends React.Component {
   currentDateText () {

@@ -6,6 +6,9 @@ import { extendMoment } from 'moment-range'
 // Components
 import WeekRow from './WeekRow'
 
+// CSS
+import '../../Calendar.scss'
+
 class MonthGrid extends React.Component {
   getStartOfMonth () {
     const startOfMonth = moment(this.props.selectedDate).clone().startOf('month')
@@ -35,13 +38,14 @@ class MonthGrid extends React.Component {
     const rows = this.weekRanges()
 
     return (
-      <div>
+      <div styleName='month-grid'>
         {
           rows.map(week => (
             <WeekRow
               key={week.format('YYYY-MM-DD')}
               week={week}
               selectedPeriod={this.props.selectedPeriod}
+              appointments={this.props.appointments}
             />
           ))
         }

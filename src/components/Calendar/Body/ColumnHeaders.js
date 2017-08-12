@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import moment from 'moment'
 
 // CSS
-import '../Calendar.css'
+import '../Calendar.scss'
 
 class ColumnHeaders extends React.Component {
   parseColumnHeaders () {
@@ -56,7 +56,7 @@ class ColumnHeaders extends React.Component {
 
   render () {
     return (
-      <ul>
+      <ul styleName='column-headers'>
         {this.shouldRenderHourColumn() && this.renderHourColumn()}
         {this.parseColumnHeaders()}
       </ul>

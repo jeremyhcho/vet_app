@@ -7,7 +7,7 @@ import WeekGrid from './WeekGrid'
 import DayGrid from './DayGrid'
 
 // CSS
-import '../../Calendar.css'
+import '../../Calendar.scss'
 
 class Grid extends React.Component {
   state = {

@@ -47,7 +47,13 @@ const config = {
               {
                 webpackHotModuleReloading: true,
                 exclude: 'node_modules',
-                generateScopedName: '[name]__[local]___[hash:base64:5]'
+                generateScopedName: '[name]__[local]___[hash:base64:5]',
+                filetypes: {
+                  '.scss': {
+                    syntax: 'postcss-scss',
+                    plugins: ['postcss-nesting']
+                  }
+                }
               }
             ]
           ]
@@ -56,9 +62,10 @@ const config = {
       {
         loaders: [
           'style-loader?sourceMap',
-          'css-loader?importLoader=1&modules&localIdentName=[name]__[local]___[hash:base64:5]'
+          'css-loader?importLoader=1&modules&localIdentName=[name]__[local]___[hash:base64:5]',
+          'sass-loader?sourceMap'
         ],
-        test: /\.css$/
+        test: /\.s?css$/
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,

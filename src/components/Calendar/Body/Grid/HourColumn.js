@@ -3,7 +3,7 @@ import moment from 'moment'
 import { extendMoment } from 'moment-range'
 
 // CSS
-import '../../Calendar.css'
+import '../../Calendar.scss'
 
 class HourColumn extends React.Component {
   hoursRange () {

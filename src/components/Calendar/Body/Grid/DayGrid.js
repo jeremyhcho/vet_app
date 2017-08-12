@@ -6,7 +6,7 @@ import HourColumn from './HourColumn'
 import DayColumn from './DayColumn'
 
 // CSS
-import '../../Calendar.css'
+import '../../Calendar.scss'
 
 class DayGrid extends React.Component {
   renderGrid () {
