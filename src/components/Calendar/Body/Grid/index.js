@@ -11,18 +11,30 @@ import '../../Calendar.scss'
 
 class Grid extends React.Component {
   state = {
-    appointments: [
-      {
-        name: 'Jeremy Cho',
-        from: 'Sat Aug 12 2017 12:00 GMT-0700',
-        to: 'Sat Aug 12 2017 1:00 GMT-0700'
-      },
-      {
-        name: 'Esther Lim',
-        from: 'Sat Aug 12 2017 1:30 GMT-0700',
-        to: 'Sat Aug 12 2017 3:00 GMT-0700'
-      }
-    ]
+    appointments: {
+      '2017-08-12': [
+        {
+          id: 1,
+          name: 'Jeremy Cho',
+          from: '2017-08-12T14:00:00-07:00',
+          to: '2017-08-12T15:00:00-07:00'
+        },
+        {
+          id: 2,
+          name: 'Esther Lim',
+          from: '2017-08-12T14:15:00-07:00',
+          to: '2017-08-12T16:30:00-07:00'
+        }
+      ],
+      '2017-09-01': [
+        {
+          id: 3,
+          name: 'Jeremy Cho',
+          from: '2017-09-01T16:00:00-07:00',
+          to: '2017-09-01T17:30:00-07:00'
+        }
+      ]
+    }
   }
 
   renderGrid () {

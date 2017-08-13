@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// Components
+import Appointment from './Appointment'
+
 // CSS
 import '../../Calendar.scss'
 
@@ -14,11 +17,14 @@ class DayCell extends React.Component {
   }
 
   renderAppointments () {
-
+    return (
+      this.props.appointments.map(appointment => (
+        <Appointment appointment={appointment} key={appointment.id} />
+      ))
+    )
   }
 
   render () {
-    console.log(this.props.appointments)
     return (
       <div styleName='day-cell'>
         {this.parseRenderText()}

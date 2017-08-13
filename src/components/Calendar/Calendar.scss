@@ -1,7 +1,4 @@
 .wrapper {
-  display: flex;
-  flex-direction: column;
-
   .header {
     display: flex;
     flex: 1;
@@ -97,6 +94,10 @@
         border-bottom: 1px solid black;
       }
 
+      .appointment {
+        background-color: cornflowerblue;
+      }
+
       .month-grid {
         .day-cell {
           flex: 1;
@@ -117,16 +118,25 @@
             flex: 1;
             height: 50px;
             border-bottom: 1px solid black;
+            box-sizing: border-box;
           }
         }
 
         .day-column {
           flex: 2;
           border-right: 1px solid black;
+          position: relative;
 
           .half-hour {
-            height: 25px;
+            height: 24px;
             border-bottom: 1px solid black;
+          }
+
+          .hour-based {
+            box-sizing: border-box;
+            width: 90%;
+            z-index: 1;
+            position: absolute;
           }
         }
       }

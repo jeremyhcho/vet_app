@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import moment from 'moment'
 
 // Components
 import HourColumn from './HourColumn'
@@ -9,6 +10,10 @@ import DayColumn from './DayColumn'
 import '../../Calendar.scss'
 
 class DayGrid extends React.Component {
+  appointmentsByDay (day) {
+    return this.props.appointments[moment(day).format('YYYY-MM-DD')] || []
+  }
+
   renderGrid () {
     const { selectedDate } = this.props
 
@@ -16,12 +21,12 @@ class DayGrid extends React.Component {
       <DayColumn
         key={selectedDate.format('YYYY-MM-DD')}
         day={selectedDate}
+        appointments={this.appointmentsByDay(selectedDate)}
       />
     )
   }
 
   render () {
-    console.log(this.props.appointments)
     return (
       <div styleName='day-grid'>
         <HourColumn />
@@ -31,11 +36,11 @@ class DayGrid extends React.Component {
   }
 }
 
-const { object, array } = PropTypes
+const { object } = PropTypes
 
 DayGrid.propTypes = {
   selectedDate: object.isRequired,
-  appointments: array.isRequired
+  appointments: object.isRequired
 }
 
 export default DayGrid

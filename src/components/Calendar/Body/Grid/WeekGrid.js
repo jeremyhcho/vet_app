@@ -22,18 +22,25 @@ class WeekGrid extends React.Component {
     return Array.from(range)
   }
 
+  appointmentsByDay (day) {
+    return this.props.appointments[moment(day).format('YYYY-MM-DD')] || []
+  }
+
   renderGrid () {
     const days = this.weekRange()
 
     return (
       days.map(day => (
-        <DayColumn key={day.format('YYYY-MM-DD')} day={day} />
+        <DayColumn
+          key={day.format('YYYY-MM-DD')}
+          day={day}
+          appointments={this.appointmentsByDay(day)}
+        />
       ))
     )
   }
 
   render () {
-    console.log(this.props.appointments)
     return (
       <div styleName='week-grid'>
         <HourColumn />
@@ -43,11 +50,11 @@ class WeekGrid extends React.Component {
   }
 }
 
-const { object, array } = PropTypes
+const { object } = PropTypes
 
 WeekGrid.propTypes = {
   selectedDate: object.isRequired,
-  appointments: array.isRequired
+  appointments: object.isRequired
 }
 
 export default WeekGrid

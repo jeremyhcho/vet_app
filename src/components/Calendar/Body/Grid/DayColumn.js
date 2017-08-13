@@ -5,6 +5,7 @@ import { extendMoment } from 'moment-range'
 
 // Components
 import HourCell from './HourCell'
+import Appointment from './Appointment'
 
 // CSS
 import '../../Calendar.scss'
@@ -27,15 +28,35 @@ class DayColumn extends React.Component {
     ))
   }
 
+  renderAppointments () {
+    return (
+      this.props.appointments.map(appointment => {
+        return (
+          <Appointment
+            key={appointment.id}
+            appointment={appointment}
+            isHourBased
+          />
+        )
+      })
+    )
+  }
+
   render () {
     return (
-      <div styleName='day-column'>{this.renderHours()}</div>
+      <div styleName='day-column'>
+        {this.renderAppointments()}
+        {this.renderHours()}
+      </div>
     )
   }
 }
 
+const { object, array } = PropTypes
+
 DayColumn.propTypes = {
-  day: PropTypes.object.isRequired
+  day: object.isRequired,
+  appointments: array.isRequired
 }
 
 export default DayColumn

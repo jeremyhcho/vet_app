@@ -22,6 +22,10 @@ class WeekRow extends React.Component {
     return Array.from(range)
   }
 
+  appointmentsByDay (day) {
+    return this.props.appointments[moment(day).format('YYYY-MM-DD')] || []
+  }
+
   render () {
     const days = this.getDays()
 
@@ -33,7 +37,7 @@ class WeekRow extends React.Component {
               key={day.format('YYYY-MM-DD')}
               day={day}
               selectedPeriod={this.props.selectedPeriod}
-              appointments={this.props.appointments}
+              appointments={this.appointmentsByDay(day)}
             />
           ))
         }
@@ -42,12 +46,12 @@ class WeekRow extends React.Component {
   }
 }
 
-const { object, string, array } = PropTypes
+const { object, string } = PropTypes
 
 WeekRow.propTypes = {
   week: object.isRequired,
   selectedPeriod: string.isRequired,
-  appointments: array.isRequired
+  appointments: object.isRequired
 }
 
 export default WeekRow
