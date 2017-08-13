@@ -2,6 +2,10 @@
   "extends": "airbnb",
   "parser": "babel-eslint",
   "rules": {
+    "import/first": 0,
+    "import/extensions": 0,
+    "import/no-unresolved": 0,
+    "object-property-newline": 0,
     "semi": 0,
     "jsx-a11y/href-no-hash": "off",
     "react/jsx-filename-extension": 0,
