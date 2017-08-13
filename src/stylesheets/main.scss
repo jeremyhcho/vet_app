@@ -1,0 +1,46 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+  font-family: 'proxima-nova', sans-serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+}
+
+h4 {
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.light {
+  font-weight: 300;
+}
+
+li {
+  list-style-type: none;
+}
+
+a, a:active, a:visited, a:link {
+  text-decoration: none;
+}

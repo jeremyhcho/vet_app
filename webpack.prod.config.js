@@ -16,7 +16,10 @@ const VENDOR_LIBS = [
 const config = {
   devtool: 'source-map',
   entry: {
-    bundle: './src/index.js',
+    bundle: [
+      'babel-polyfill',
+      './src/index.js'
+    ],
     vendor: VENDOR_LIBS
   },
   output: {
@@ -33,13 +36,34 @@ const config = {
       },
       {
         test: /\.js$/,
-        use: 'babel-loader',
-        exclude: /node_modules/
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+          plugins: [
+            'transform-react-jsx',
+            [
+              'react-css-modules',
+              {
+                exclude: 'node_modules',
+                generateScopedName: '[name]__[local]___[hash:base64:5]',
+                filetypes: {
+                  '.scss': {
+                    syntax: 'postcss-scss',
+                    plugins: ['postcss-nesting', 'postcss-css-variables']
+                  }
+                }
+              }
+            ]
+          ]
+        }
       },
       {
         test: /\.scss$/,
         use: extractSass.extract({
-          use: 'css-loader?modules,localIdentName="[name]-[local]-[hash:base64:6]"',
+          use: [
+            'css-loader?importLoader=1&modules&localIdentName=[name]__[local]___[hash:base64:5]',
+            'sass-loader'
+          ],
           fallback: 'style-loader'
         })
       },
@@ -69,11 +93,11 @@ const config = {
     extractSass
   ],
   resolve: {
-    modules: [
-      path.join(__dirname, 'assets'),
-      path.join(__dirname, 'src'),
-      'node_modules'
-    ]
+    alias: {
+      Components: path.resolve(__dirname, 'src/components'),
+      Containers: path.resolve(__dirname, 'src/containers')
+    },
+    extensions: ['.js', '.scss']
   }
 }
 

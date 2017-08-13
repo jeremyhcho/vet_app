@@ -51,7 +51,7 @@ const config = {
                 filetypes: {
                   '.scss': {
                     syntax: 'postcss-scss',
-                    plugins: ['postcss-nesting']
+                    plugins: ['postcss-nesting', 'postcss-css-variables']
                   }
                 }
               }
@@ -101,11 +101,11 @@ const config = {
     new webpack.NoEmitOnErrorsPlugin()
   ],
   resolve: {
-    modules: [
-      path.join(__dirname, 'assets'),
-      path.join(__dirname, 'src'),
-      'node_modules'
-    ]
+    alias: {
+      Components: path.resolve(__dirname, 'src/components'),
+      Containers: path.resolve(__dirname, 'src/containers')
+    },
+    extensions: ['.js', '.scss']
   }
 }
 

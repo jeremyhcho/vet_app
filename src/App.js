@@ -1,9 +1,11 @@
 import React from 'react'
-import Calendar from './Calendar/index'
+
+// Components
+import Routes from './Routes'
 
 const App = () => (
   <div id='app'>
-    <Calendar />
+    <Routes />
   </div>
 )
 

@@ -14,6 +14,9 @@ import createSagaMiddleware from 'redux-saga'
 import rootReducer from './reducers'
 import rootSaga from './sagas'
 
+// Global CSS
+import './stylesheets/main.scss'
+
 // Router
 import AppRouter from './router'
 
