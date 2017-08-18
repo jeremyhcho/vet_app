@@ -60,12 +60,19 @@ const config = {
         }
       },
       {
+        test: /\.scss$/,
+        exclude: /node_modules/,
         loaders: [
           'style-loader?sourceMap',
           'css-loader?importLoader=1&modules&localIdentName=[name]__[local]___[hash:base64:5]',
           'sass-loader?sourceMap'
-        ],
-        test: /\.s?css$/
+        ]
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader?modules',
+        include: /flexboxgrid/,
+        exclude: /node_modules/
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,

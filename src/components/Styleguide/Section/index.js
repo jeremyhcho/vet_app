@@ -1,18 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// CSS
 import './Section.scss'
 
 const Section = ({ header, children }) => (
-  <div styleName='section'>
-    <div styleName='header'>{header}</div>
-    <div styleName='body'>{children}</div>
+  <div className='grid' styleName='section'>
+    <div className='col-8' data-push-left='off-2' styleName='header'>
+      <h3>{header}</h3>
+    </div>
+
+    <div className='col-8' data-push-left='off-2'>{children}</div>
   </div>
 )
 
 Section.propTypes = {
   header: PropTypes.string.isRequired,
-  children: PropTypes.array.isRequired
+  children: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array
+  ]).isRequired
 }
 
 export default Section

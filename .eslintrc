@@ -2,6 +2,7 @@
   "extends": "airbnb",
   "parser": "babel-eslint",
   "rules": {
+    "import/prefer-default-export": 0,
     "import/first": 0,
     "import/extensions": 0,
     "import/no-unresolved": 0,

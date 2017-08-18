@@ -1,0 +1,24 @@
+:root {
+  // font
+  --font: 'proxima-nova', sans-serif;
+
+  // Borders
+  --border-radius: 3px;
+
+  // Gutter
+  --gutter: 20px;
+  --vertical-gutter: 30px;
+
+  // Colors
+  --white: #FFFFFF;
+  --blue-dark: #3590DC;
+  --blue: #3EA5FB;
+  --gray-light: #E8E8E8;
+  --gray: #CCCCCC;
+  --black: #3C3C3C;
+  --success: #44BE2C;
+  --error: #F72C2C;
+
+  // Box Shadow
+  --box-shadow: 0 0 2px var(--gray);
+}

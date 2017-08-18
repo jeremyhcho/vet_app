@@ -19,7 +19,7 @@ const Routes = () => (
   <main>
     <Switch>
       <Route exact path='/' component={Styleguide} />
-      <Route path='/calendar' component={Calendar} />
+      <Route exact path='/calendar' component={Calendar} />
     </Switch>
   </main>
 )

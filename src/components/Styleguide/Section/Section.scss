@@ -1,9 +1,9 @@
 .section {
+  margin-bottom: calc(var(--gutter) * 2);
+
   .header {
-
-  }
-
-  .body {
-
+    border-top: 1px solid var(--gray-light);
+    padding-top: 30px;
+    margin-bottom: 50px;
   }
 }
