@@ -4,11 +4,14 @@ import React from 'react'
 import './Styleguide.scss'
 
 // Components
-import Section from 'Components/Styleguide/Section'
-import Typography from 'Components/Styleguide/Typography'
-import Colors from 'Components/Styleguide/Colors'
-import Buttons from 'Components/Styleguide/Buttons'
-import Radios from 'Components/Styleguide/Radios'
+import {
+  Section,
+  Typography,
+  Colors,
+  Buttons,
+  Radios,
+  Checkboxes
+} from 'Components/Styleguide'
 
 class Styleguide extends React.Component {
   render () {
@@ -31,6 +34,7 @@ class Styleguide extends React.Component {
         <Section header='UI Components'>
           <Buttons />
           <Radios />
+          <Checkboxes />
         </Section>
       </div>
     )
