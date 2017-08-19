@@ -112,6 +112,36 @@ input {
   font-family: var(--font);
 }
 
-span, i, b, u {
+a,
+b,
+big,
+i,
+small,
+tt,
+abbr,
+acronym,
+cite,
+code,
+dfn,
+em,
+kbd,
+strong,
+samp,
+time,
+var,
+bdo,
+br,
+img,
+map,
+object,
+q,
+span,
+sub,
+sup,
+label,
+button,
+input,
+select,
+textarea {
   display: inline-block;
 }
