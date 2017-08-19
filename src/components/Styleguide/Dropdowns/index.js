@@ -47,7 +47,7 @@ class Dropdowns extends React.Component {
               items={sampleItems}
               valueKey='value'
               labelKey='label'
-              value={this.state.value}
+              value={this.state.single}
               onClick={(e, item) => this.setState({ single: item })}
             />
           </div>
@@ -66,7 +66,7 @@ class Dropdowns extends React.Component {
               items={sampleItems}
               valueKey='value'
               labelKey='label'
-              value={this.state.value}
+              value={this.state.single}
               onClick={(e, item) => this.setState({ single: item })}
             />
           </div>

@@ -10,8 +10,6 @@
   background-color: white;
   text-align: left;
   z-index: 1;
-  max-height: 200px;
-  overflow-y: auto;
 
   &.show {
     visibility: visible;
@@ -32,11 +30,14 @@
   }
 
   > ul {
+    max-height: 200px;
+    overflow-y: auto;
+
     .list-item {
       user-select: none;
       padding: 5px 20px;
       position: relative;
-      line-height: 40px;
+      min-height: 40px;
       vertical-align: midde;
 
       &:hover {
@@ -66,6 +67,11 @@
           border-width: 0 2px 2px 0;
           transform: rotate(45deg);
         }
+      }
+
+      .item-label {
+        line-height: 40px;
+        vertical-align: middle;
       }
     }
   }

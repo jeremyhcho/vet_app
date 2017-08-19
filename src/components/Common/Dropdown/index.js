@@ -51,6 +51,24 @@ class Dropdown extends React.Component {
     }
   }
 
+  getListItem (item) {
+    if (this.props.listItem) {
+      return this.props.listItem
+    }
+
+    return <span styleName='item-label'>{item[this.props.labelKey]}</span>
+  }
+
+  lockBodyScroll = (bool) => {
+    return () => {
+      if (bool) {
+        document.querySelector('body').style.overflowY = 'hidden'
+      } else {
+        document.querySelector('body').style.overflowY = 'auto'
+      }
+    }
+  }
+
   parseSelected (value) {
     if (this.props.multi) {
       if (this.props.value.find(item => item[this.props.valueKey] === value)) {
@@ -65,16 +83,6 @@ class Dropdown extends React.Component {
     }
 
     return false
-  }
-
-  lockBodyScroll = (bool) => {
-    return () => {
-      if (bool) {
-        document.querySelector('body').style.overflowY = 'hidden'
-      } else {
-        document.querySelector('body').style.overflowY = 'auto'
-      }
-    }
   }
 
   search = (e) => {
@@ -129,7 +137,7 @@ class Dropdown extends React.Component {
         key={item.key}
         onClick={this.onClick(item)}
       >
-        {item[this.props.labelKey]}
+        {this.getListItem(item)}
       </li>
     )
   }
@@ -180,7 +188,8 @@ Dropdown.defaultProps = {
   multi: false,
   scrollToTopOnClose: true,
   valueKey: '',
-  search: false
+  search: false,
+  listItem: undefined
 }
 
 Dropdown.propTypes = {
@@ -197,7 +206,8 @@ Dropdown.propTypes = {
   scrollToTopOnClose: PropTypes.bool,
   valueKey: PropTypes.string,
   labelKey: PropTypes.string.isRequired,
-  search: PropTypes.bool
+  search: PropTypes.bool,
+  listItem: PropTypes.object
 }
 
 export default Dropdown
