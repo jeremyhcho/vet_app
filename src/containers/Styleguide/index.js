@@ -10,7 +10,11 @@ import {
   Colors,
   Buttons,
   Radios,
-  Checkboxes
+  Checkboxes,
+  Dropdowns,
+  Toggles,
+  Tooltips,
+  Tabs
 } from 'Components/Styleguide'
 
 class Styleguide extends React.Component {
@@ -33,8 +37,12 @@ class Styleguide extends React.Component {
 
         <Section header='UI Components'>
           <Buttons />
+          <Dropdowns />
           <Radios />
           <Checkboxes />
+          <Toggles />
+          <Tooltips />
+          <Tabs />
         </Section>
       </div>
     )

@@ -1,0 +1,38 @@
+:global {
+  .select-wrapper {
+    position: relative;
+
+    &.disabled {
+      background-color: var(--gray-light);
+      color: var(--gray);
+
+      .select {
+        box-shadow: none;
+        cursor: not-allowed;
+      }
+
+      svg {
+        fill: var(--gray);
+      }
+    }
+
+    .select {
+      border-radius: var(--border-radius);
+      border: 1px solid var(--gray);
+      box-shadow: var(--box-shadow);
+      height: 30px;
+      line-height: 30px;
+      vertical-align: middle;
+      padding: 0 15px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .label {
+      width: calc(100% - 20px);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

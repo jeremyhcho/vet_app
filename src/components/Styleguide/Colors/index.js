@@ -16,13 +16,19 @@ const colors = [
     rgb: 'rgb(62, 165, 251)'
   },
   {
-    styleName: 'success',
+    styleName: 'green',
     label: 'Green',
     hex: '#44BE2C',
     rgb: 'rgb(68, 190, 44)'
   },
   {
-    styleName: 'error',
+    styleName: 'red-dark',
+    label: 'Dark Red',
+    hex: '#C62525',
+    rgb: 'rgb(198, 37, 37)'
+  },
+  {
+    styleName: 'red',
     label: 'Red',
     hex: '#F72C2C',
     rgb: 'rgb(247, 44, 44)'

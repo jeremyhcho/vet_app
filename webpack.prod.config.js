@@ -68,10 +68,25 @@ const config = {
         })
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/,
+        test: /\.(jpe?g|png|gif)$/,
         use: [
           'file-loader',
           'image-webpack-loader'
+        ]
+      },
+      {
+        test: /\.svg$/,
+        loaders: [
+          {
+            loader: 'babel-loader',
+            query: {
+              presets: ['es2015']
+            }
+          },
+          {
+            loader: 'react-svg-loader',
+            query: { jsx: true }
+          }
         ]
       }
     ]

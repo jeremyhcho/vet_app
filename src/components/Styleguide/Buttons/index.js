@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Components
-import { Button, LinkButton } from 'Components/Common/Buttons'
+import { Button, LinkButton } from 'Components/Common'
 
 // CSS
 import './Buttons.scss'
@@ -10,7 +10,7 @@ const Buttons = () => (
   <div className='grid' styleName='buttons'>
     <div className='col-6'>
       <div className='col-12'>
-        <h4 className='light'>Buttons</h4>
+        <h4 className='light'>Button</h4>
       </div>
 
       <div className='col-12'>

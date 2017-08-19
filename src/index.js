@@ -15,7 +15,7 @@ import rootReducer from './reducers'
 import rootSaga from './sagas'
 
 // Global CSS
-import './stylesheets/main.scss'
+import './assets/stylesheets/main.scss'
 
 // Router
 import AppRouter from './router'

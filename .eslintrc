@@ -2,6 +2,10 @@
   "extends": "airbnb",
   "parser": "babel-eslint",
   "rules": {
+    "no-mixed-operators": 0,
+    "react/no-find-dom-node": 0,
+    "no-return-assign": 0,
+    "jsx-a11y/no-noninteractive-tabindex": 0,
     "import/prefer-default-export": 0,
     "import/first": 0,
     "import/extensions": 0,
@@ -29,5 +33,12 @@
     "no-plusplus": 0,
     "jsx-a11y/no-static-element-interactions": 0,
     "no-restricted-syntax": 0
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "document": false
   }
 }

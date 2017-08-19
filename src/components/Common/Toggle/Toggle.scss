@@ -1,0 +1,33 @@
+.toggle {
+  background-color: var(--red-dark);
+  box-shadow: var(--box-shadow);
+  position: relative;
+  width: 80px;
+  height: 24px;
+  border-radius: var(--border-radius);
+
+  &.disabled {
+    background-color: var(--gray) !important;
+    cursor: not-allowed;
+  }
+
+  &.active {
+    background-color: var(--blue);
+
+    .indicator {
+      left: 40px;
+    }
+  }
+
+  .indicator {
+    position: absolute;
+    width: 38px;
+    height: 20px;
+    top: 2px;
+    left: 2px;
+    transition: left 200ms ease;
+    background-color: var(--gray-light);
+    border-radius: var(--border-radius);
+    z-index: 1;
+  }
+}

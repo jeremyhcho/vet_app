@@ -39,12 +39,16 @@
         background-color: var(--black);
       }
 
-      &.success {
-        background-color: var(--success);
+      &.green {
+        background-color: var(--green);
       }
 
-      &.error {
-        background-color: var(--error);
+      &.red {
+        background-color: var(--red);
+      }
+
+      &.red-dark {
+        background-color: var(--red-dark);
       }
     }
 

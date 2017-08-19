@@ -1,5 +1,5 @@
 :global {
-  .radio-label {
+  .checkbox-label {
     position: relative;
     display: inline-block;
 
@@ -8,40 +8,37 @@
       opacity: 0.4;
     }
 
-    .circle {
+    .check {
       display: inline-block;
       width: 16px;
       height: 16px;
-      border-radius: 50%;
+      border-radius: var(--border-radius);
       border: 1px solid var(--gray);
       vertical-align: middle;
       position: relative;
+
+      svg {
+        visibility: hidden;
+      }
     }
 
-    .radio {
+    .checkbox {
       &:checked, &:not(:checked) {
         position: absolute;
         left: -9999px;
       }
 
-      &:hover ~ .circle:not(.disabled) {
+      &:hover ~ .check:not(.disabled) {
         border: 1px solid var(--blue-dark);
       }
     }
 
-    .radio:checked ~ .circle {
+    .checkbox:checked ~ .check {
       border: 1px solid var(--blue-dark);
 
-      &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        height: 6px;
-        width: 6px;
-        background-color: var(--blue);
-        top: 4px;
-        left: 4px;
-        border-radius: 50px;
+      svg {
+        visibility: visible;
+        fill: var(--blue);
       }
     }
 
@@ -51,5 +48,4 @@
       margin-left: 8px;
     }
   }
-
 }
