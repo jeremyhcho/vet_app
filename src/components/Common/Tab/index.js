@@ -12,7 +12,7 @@ class Tab extends React.Component {
 
   onClick = (tabItem) => {
     return (e) => {
-      if (tabItem.key === this.state.selectedTabItem.key) {
+      if (tabItem.key === this.state.selectedTabItem.key || tabItem.disabled) {
         return null
       }
 
@@ -39,7 +39,8 @@ class Tab extends React.Component {
         {
           tabs.map(tabItem => {
             const tabItemClass = classNames('tab-item', {
-              selected: tabItem.key === this.state.selectedTabItem.key
+              selected: tabItem.key === this.state.selectedTabItem.key,
+              disabled: tabItem.disabled === true
             })
 
             return (

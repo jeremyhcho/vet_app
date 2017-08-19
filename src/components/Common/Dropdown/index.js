@@ -155,6 +155,7 @@ class Dropdown extends React.Component {
       labelKey,
       valueKey,
       search,
+      listItem,
       ...dropdownProps
     } = this.props
 

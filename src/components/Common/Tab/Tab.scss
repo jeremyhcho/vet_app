@@ -10,5 +10,10 @@
       transition: border 150ms ease;
       border-bottom: 3px solid var(--blue);
     }
+
+    &.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
   }
 }

@@ -8,7 +8,7 @@ const tabItems = [
   { label: 'Manager', key: 'manager' },
   { label: 'Route', key: 'route' },
   { label: 'On-Demand', key: 'on-demand' },
-  { label: 'Hamper', key: 'hamper' },
+  { label: 'Hamper', key: 'hamper', disabled: true },
   { label: 'Rates', key: 'rates' }
 ]
 

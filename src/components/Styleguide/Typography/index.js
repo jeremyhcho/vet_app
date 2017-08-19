@@ -19,7 +19,7 @@ const Typography = () => (
         <div className='col'>
           <div className='grid'>
             <div className='col-3 bold'>H1</div>
-            <div className='col'>24px</div>
+            <div className='col' style={{ textAlign: 'center' }}>24px</div>
           </div>
         </div>
         <h1 className='col bold'>The quick brown fox jumps over the lazy dog.</h1>
@@ -33,7 +33,7 @@ const Typography = () => (
         <div className='col'>
           <div className='grid'>
             <div className='col-3 bold'>H2</div>
-            <div className='col'>22px</div>
+            <div className='col' style={{ textAlign: 'center' }}>22px</div>
           </div>
         </div>
         <h2 className='col bold'>The quick brown fox jumps over the lazy dog.</h2>
@@ -47,7 +47,7 @@ const Typography = () => (
         <div className='col'>
           <div className='grid'>
             <div className='col-3 bold'>H3</div>
-            <div className='col'>20px</div>
+            <div className='col' style={{ textAlign: 'center' }}>20px</div>
           </div>
         </div>
         <h3 className='col bold'>The quick brown fox jumps over the lazy dog.</h3>
@@ -61,7 +61,7 @@ const Typography = () => (
         <div className='col'>
           <div className='grid'>
             <div className='col-3 bold'>H4</div>
-            <div className='col'>18px</div>
+            <div className='col' style={{ textAlign: 'center' }}>18px</div>
           </div>
         </div>
         <h4 className='col bold'>The quick brown fox jumps over the lazy dog.</h4>
@@ -75,7 +75,7 @@ const Typography = () => (
         <div className='col'>
           <div className='grid'>
             <div className='col-3 bold'>Body</div>
-            <div className='col'>14px</div>
+            <div className='col' style={{ textAlign: 'center' }}>14px</div>
           </div>
         </div>
         <p className='col bold'>The quick brown fox jumps over the lazy dog.</p>

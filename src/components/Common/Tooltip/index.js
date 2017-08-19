@@ -52,8 +52,8 @@ class Tooltip extends React.Component {
 
   topPos (x, y) {
     return ({
-      top: y - this.target.offsetHeight - 15,
-      left: x + (this.target.offsetWidth / 2) - (this.tooltip.offsetWidth / 2)
+      top: y - this.tooltip.offsetHeight - 8,
+      left: x - (this.tooltip.offsetWidth / 2) + (this.target.offsetWidth / 2)
     })
   }
 
@@ -74,7 +74,7 @@ class Tooltip extends React.Component {
   bottomPos (x, y) {
     return ({
       top: y + this.target.offsetHeight + 8,
-      left: x + (this.target.offsetWidth / 2) - (this.tooltip.offsetWidth / 2)
+      left: x - (this.tooltip.offsetWidth / 2) + (this.target.offsetWidth / 2)
     })
   }
 
@@ -108,7 +108,8 @@ Tooltip.propTypes = {
   pos: PropTypes.string.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.object
+    PropTypes.object,
+    PropTypes.array
   ]).isRequired
 }
 

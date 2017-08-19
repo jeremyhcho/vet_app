@@ -111,3 +111,7 @@ input {
   letter-spacing: 0.5px;
   font-family: var(--font);
 }
+
+span, i, b, u {
+  display: inline-block;
+}
