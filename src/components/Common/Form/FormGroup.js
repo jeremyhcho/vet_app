@@ -14,6 +14,8 @@ class FormGroup extends React.Component {
   }
 
   onChangeInGroup = (id, error) => {
+    // This callback gets called when a FormField is mounted or the input within
+    // it changes.
     this.state.invalidStates.set(id, error)
     this.checkValidations()
   }
@@ -35,6 +37,8 @@ class FormGroup extends React.Component {
     }
 
     if (force) {
+      // Used when the Submit button is NOT disabled and we want to surface all
+      // and any errors.
       newState.forceDirty = true
     }
 
@@ -42,6 +46,7 @@ class FormGroup extends React.Component {
   }
 
   triggerForceDirty = () => {
+    // Surfaces all and any errors at once.
     this.checkValidations(true)
   }
 

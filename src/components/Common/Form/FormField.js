@@ -75,10 +75,10 @@ class FormField extends React.Component {
   }
 
   renderError () {
-    if (!this.props.validators.length ||
-        !this.state.error ||
-        !this.state.dirty ||
-        this.props.disabled) {
+    const { validators, disabled } = this.props
+    const { error, dirty } = this.state
+
+    if (!validators.length || !error || !dirty || disabled) {
       return null
     }
 
