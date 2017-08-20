@@ -66,7 +66,7 @@ class RangeChanger extends React.Component {
 
   render () {
     return (
-      <div styleName='third range-changer'>
+      <div className='col-4' styleName='third range-changer'>
         <span className='fa fa-angle-left' styleName='range-angle left' onClick={this.stepCalendarBack} />
         <span styleName='current-date'>{this.currentDateText()}</span>
         <span className='fa fa-angle-right' styleName='range-angle right' onClick={this.stepCalendarForward} />

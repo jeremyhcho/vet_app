@@ -18,17 +18,18 @@ class Header extends React.Component {
     } = this.props
 
     return (
-      <div styleName='header'>
-        <RangeSelector
-          selectedPeriod={selectedPeriod}
-          changePeriod={changePeriod}
-        />
-        <RangeChanger
-          selectedPeriod={selectedPeriod}
-          selectedDate={selectedDate}
-          changeDate={changeDate}
-        />
-        <div styleName='third' />
+      <div className='col-12' styleName='header'>
+        <div className='grid'>
+          <RangeSelector
+            selectedPeriod={selectedPeriod}
+            changePeriod={changePeriod}
+          />
+          <RangeChanger
+            selectedPeriod={selectedPeriod}
+            selectedDate={selectedDate}
+            changeDate={changeDate}
+          />
+        </div>
       </div>
     )
   }

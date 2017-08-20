@@ -30,7 +30,7 @@ class WeekRow extends React.Component {
     const days = this.getDays()
 
     return (
-      <div styleName='week'>
+      <div className='col-12' styleName='week'>
         {
           days.map(day => (
             <DayCell

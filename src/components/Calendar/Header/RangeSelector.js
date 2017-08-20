@@ -29,7 +29,7 @@ class RangeSelector extends React.Component {
 
   render () {
     return (
-      <div styleName='third range-selector'>
+      <div className='col-4' styleName='third range-selector'>
         <ul>
           { this.renderRanges() }
         </ul>

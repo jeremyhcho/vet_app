@@ -27,7 +27,7 @@ class Calendar extends React.Component {
     const { selectedPeriod, selectedDate } = this.state
 
     return (
-      <div styleName='wrapper'>
+      <div className='grid' styleName='wrapper'>
         <Header
           selectedPeriod={selectedPeriod}
           selectedDate={selectedDate}

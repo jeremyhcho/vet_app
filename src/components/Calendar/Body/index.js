@@ -13,7 +13,7 @@ class Body extends React.Component {
     const { selectedPeriod, selectedDate } = this.props
 
     return (
-      <div styleName='body'>
+      <div className='col-12' styleName='body'>
         <ColumnHeaders
           selectedPeriod={selectedPeriod}
           selectedDate={selectedDate}
