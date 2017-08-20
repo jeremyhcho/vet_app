@@ -5,13 +5,14 @@ import classNames from 'classnames'
 // CSS
 import './Buttons.scss'
 
-const SecondaryButton = ({ children, onClick, disabled, ...buttonProps }) => {
+const SecondaryButton = ({ children, onClick, disabled, type, ...buttonProps }) => {
   const buttonClass = classNames('btn secondary', {
     disabled
   })
 
   return (
     <button
+      type={type}
       styleName={buttonClass}
       onClick={onClick}
       {...buttonProps}
@@ -22,7 +23,8 @@ const SecondaryButton = ({ children, onClick, disabled, ...buttonProps }) => {
 }
 
 SecondaryButton.defaultProps = {
-  disabled: false
+  disabled: false,
+  type: 'button'
 }
 
 SecondaryButton.propTypes = {
@@ -32,7 +34,8 @@ SecondaryButton.propTypes = {
     PropTypes.array
   ]).isRequired,
   onClick: PropTypes.func.isRequired,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  type: PropTypes.string
 }
 
 export default SecondaryButton

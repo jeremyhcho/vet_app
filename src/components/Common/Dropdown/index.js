@@ -108,7 +108,7 @@ class Dropdown extends React.Component {
           style={{
             position: 'absolute',
             right: '15px',
-            top: '16px',
+            top: '15px',
             pointerEvents: 'none'
           }}
         />

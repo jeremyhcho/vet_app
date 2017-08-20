@@ -1,0 +1,41 @@
+.form-field {
+  position: relative;
+
+  .input-label {
+    &.disabled {
+      opacity: 0.4;
+    }
+  }
+
+  input {
+    width: 100%;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--gray);
+    box-shadow: var(--box-shadow);
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    padding: 0 15px;
+    margin-top: 6px;
+    cursor: not-allowed;
+
+    &:focus {
+      border: 1px solid var(--blue) !important;
+    }
+
+    &.error {
+      border: 1px solid var(--red);
+    }
+
+    &.disabled {
+      opacity: 0.4;
+    }
+  }
+
+  .error-label {
+    color: var(--red);
+    height: 17px;
+    margin-top: 5px;
+    font-size: 1.2rem;
+  }
+}

@@ -11,7 +11,9 @@ const sampleItems = [
   { key: '2', value: '2', label: 'Label 2' },
   { key: '3', value: '3', label: 'Label 3' },
   { key: '4', value: '4', label: 'Label 4' },
-  { key: '5', value: '5', label: 'Label 5' }
+  { key: '5', value: '5', label: 'Label 5' },
+  { key: '6', value: '6', label: 'Label 6' },
+  { key: '7', value: '7', label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.' }
 ]
 
 class Dropdowns extends React.Component {

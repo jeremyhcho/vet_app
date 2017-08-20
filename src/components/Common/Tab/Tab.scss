@@ -5,6 +5,7 @@
     text-align: center;
     cursor: pointer;
     border-bottom: 3px solid transparent;
+    user-select: none;
 
     &.selected {
       transition: border 150ms ease;

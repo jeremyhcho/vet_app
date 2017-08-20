@@ -5,22 +5,35 @@ import classNames from 'classnames'
 // CSS
 import './Buttons.scss'
 
-const LinkButton = ({ children, onClick, disabled, ...buttonProps }) => {
-  const buttonClass = classNames('btn link', {
-    disabled
-  })
+class LinkButton extends React.Component {
+  onClick = (e) => {
+    if (this.props.disabled) {
+      return null
+    }
 
-  return (
-    <button styleName={buttonClass} onClick={onClick} {...buttonProps}>
-      { children }
-    </button>
-  )
+    return this.props.onClick(e)
+  }
+
+  render () {
+    const { children, onClick, disabled, type, ...buttonProps } = this.props
+
+    const buttonClass = classNames('btn link', {
+      disabled
+    })
+
+    return (
+      <button type={type} styleName={buttonClass} onClick={this.onClick} {...buttonProps}>
+        { children }
+      </button>
+    )
+  }
 }
 
 const { object, func, string, bool, array } = PropTypes
 
 LinkButton.defaultProps = {
-  disabled: false
+  disabled: false,
+  type: 'button'
 }
 
 LinkButton.propTypes = {
@@ -30,7 +43,8 @@ LinkButton.propTypes = {
     array
   ]).isRequired,
   onClick: func.isRequired,
-  disabled: bool
+  disabled: bool,
+  type: PropTypes.string
 }
 
 export default LinkButton

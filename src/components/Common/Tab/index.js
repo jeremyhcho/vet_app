@@ -17,7 +17,7 @@ class Tab extends React.Component {
       }
 
       this.setState({ selectedTabItem: tabItem })
-      return this.props.onChange(e)
+      return this.props.onChange(e, tabItem)
     }
   }
 

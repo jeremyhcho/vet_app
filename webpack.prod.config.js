@@ -110,7 +110,8 @@ const config = {
   resolve: {
     alias: {
       Components: path.resolve(__dirname, 'src/components'),
-      Containers: path.resolve(__dirname, 'src/containers')
+      Containers: path.resolve(__dirname, 'src/containers'),
+      Helpers: path.resolve(__dirname, 'src/helpers')
     },
     extensions: ['.js', '.scss']
   }

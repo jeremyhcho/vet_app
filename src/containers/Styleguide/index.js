@@ -14,7 +14,8 @@ import {
   Dropdowns,
   Toggles,
   Tooltips,
-  Tabs
+  Tabs,
+  Forms
 } from 'Components/Styleguide'
 
 class Styleguide extends React.Component {
@@ -36,6 +37,7 @@ class Styleguide extends React.Component {
         </Section>
 
         <Section header='UI Components'>
+          <Forms />
           <Buttons />
           <Dropdowns />
           <Radios />

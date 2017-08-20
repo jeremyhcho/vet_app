@@ -5,13 +5,14 @@ import classNames from 'classnames'
 // CSS
 import './Buttons.scss'
 
-const PrimaryButton = ({ children, onClick, disabled, ...buttonProps }) => {
+const PrimaryButton = ({ children, onClick, disabled, type, ...buttonProps }) => {
   const buttonClass = classNames('btn primary', {
     disabled
   })
 
   return (
     <button
+      type={type}
       styleName={buttonClass}
       onClick={onClick}
       {...buttonProps}
@@ -22,7 +23,8 @@ const PrimaryButton = ({ children, onClick, disabled, ...buttonProps }) => {
 }
 
 PrimaryButton.defaultProps = {
-  disabled: false
+  disabled: false,
+  type: 'button'
 }
 
 PrimaryButton.propTypes = {
@@ -32,7 +34,8 @@ PrimaryButton.propTypes = {
     PropTypes.array
   ]).isRequired,
   onClick: PropTypes.func.isRequired,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  type: PropTypes.string
 }
 
 export default PrimaryButton
