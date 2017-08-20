@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 class FormGroup extends React.Component {
   state = {
     valid: true,
-    invalidStates: new Map()
+    invalidStates: new Map(),
+    forceDirty: false
   }
 
   onValidatorLeave = (id) => {
@@ -17,7 +18,7 @@ class FormGroup extends React.Component {
     this.checkValidations()
   }
 
-  checkValidations () {
+  checkValidations (force = false) {
     let validState = true
 
     for (const notValid of this.state.invalidStates.values()) {
@@ -27,18 +28,31 @@ class FormGroup extends React.Component {
       }
     }
 
+    const newState = {}
+
     if (this.state.valid !== validState) {
-      this.setState({ valid: validState })
+      newState.valid = validState
     }
+
+    if (force) {
+      newState.forceDirty = true
+    }
+
+    this.setState(newState)
+  }
+
+  triggerForceDirty = () => {
+    this.checkValidations(true)
   }
 
   render () {
     const baseProps = {
       onChangeInGroup: this.onChangeInGroup,
-      onValidatorLeave: this.onValidatorLeave
+      onValidatorLeave: this.onValidatorLeave,
+      forceDirty: this.state.forceDirty
     }
 
-    const { children, ...formGroupProps } = this.props
+    const { children, disableSubmitUntilValid, ...formGroupProps } = this.props
 
     const newChildren = React.Children.map(children, child => {
       if (child && child.type.name === 'FormField') {
@@ -46,7 +60,14 @@ class FormGroup extends React.Component {
       }
 
       if (child && child.props && child.type.name === 'Submit') {
-        return React.cloneElement(child, { disabled: !this.state.valid })
+        if (disableSubmitUntilValid) {
+          return React.cloneElement(child, { disabled: !this.state.valid })
+        }
+
+        return React.cloneElement(child, {
+          valid: this.state.valid,
+          triggerForceDirty: this.triggerForceDirty
+        })
       }
 
       return child
@@ -61,14 +82,16 @@ class FormGroup extends React.Component {
 }
 
 FormGroup.defaultProps = {
-  className: 'grid'
+  className: 'grid',
+  disableSubmitUntilValid: false
 }
 
 FormGroup.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.object
-  ]).isRequired
+  ]).isRequired,
+  disableSubmitUntilValid: PropTypes.bool
 }
 
 export default FormGroup

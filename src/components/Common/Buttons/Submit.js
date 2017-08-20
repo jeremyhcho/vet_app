@@ -5,23 +5,42 @@ import PropTypes from 'prop-types'
 import Button from './Button'
 
 class Submit extends React.Component {
+  onClick = (e) => {
+    if (this.props.valid) {
+      this.props.onClick(e)
+    } else {
+      this.props.triggerForceDirty()
+    }
+  }
+
   render () {
-    const { className } = this.props
+    const {
+      className,
+      triggerForceDirty,
+      onClick,
+      valid,
+      ...buttonProps
+    } = this.props
 
     return (
       <div className={className}>
-        <Button {...this.props} />
+        <Button onClick={this.onClick} {...buttonProps} />
       </div>
     )
   }
 }
 
 Submit.defaultProps = {
-  className: 'col'
+  className: 'col',
+  valid: true,
+  triggerForceDirty: () => { return null }
 }
 
 Submit.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  triggerForceDirty: PropTypes.func,
+  valid: PropTypes.bool,
+  onClick: PropTypes.func.isRequired
 }
 
 export default Submit

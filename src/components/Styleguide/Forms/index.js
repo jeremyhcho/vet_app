@@ -54,7 +54,7 @@ class Inputs extends React.Component {
             <h4 className='light'>Disabled</h4>
           </div>
 
-          <FormGroup className='col-6'>
+          <FormGroup className='col-6' disableSubmitUntilValid>
             <FormField
               disabled
               type='text'

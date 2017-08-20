@@ -21,7 +21,12 @@ class FormField extends React.Component {
   }
 
   componentWillReceiveProps (newProps) {
-    if (this.props.value !== newProps.value && this.state.error) {
+    if (this.props.value === newProps.value && newProps.forceDirty) {
+      this.setState({
+        dirty: true,
+        error: this.runValidations(newProps.value)
+      })
+    } else if (this.props.value !== newProps.value && this.state.error) {
       this.setState({ dirty: false })
     }
   }
@@ -70,7 +75,10 @@ class FormField extends React.Component {
   }
 
   renderError () {
-    if (!this.props.validators.length || !this.state.error || !this.state.dirty) {
+    if (!this.props.validators.length ||
+        !this.state.error ||
+        !this.state.dirty ||
+        this.props.disabled) {
       return null
     }
 
@@ -90,11 +98,12 @@ class FormField extends React.Component {
       onValidatorLeave,
       onBlur,
       disabled,
+      forceDirty,
       ...inputProps
     } = this.props
 
     const inputClass = classNames({
-      error: this.state.error,
+      error: this.state.error && !this.props.disabled,
       disabled
     })
 
@@ -127,6 +136,7 @@ FormField.defaultProps = {
   onChangeInGroup: undefined,
   onValidatorLeave: undefined,
   disabled: false,
+  forceDirty: false,
   onBlur: () => { return null }
 }
 
@@ -142,7 +152,8 @@ FormField.propTypes = {
   onChangeInGroup: PropTypes.func,
   onValidatorLeave: PropTypes.func,
   onBlur: PropTypes.func,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  forceDirty: PropTypes.bool
 }
 
 export default FormField
