@@ -17,7 +17,6 @@
     vertical-align: middle;
     padding: 0 15px;
     margin-top: 6px;
-    cursor: not-allowed;
 
     &:focus {
       border: 1px solid var(--blue) !important;
@@ -29,6 +28,7 @@
 
     &.disabled {
       opacity: 0.4;
+      cursor: not-allowed;
     }
   }
 
